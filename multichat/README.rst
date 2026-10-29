@@ -22,9 +22,13 @@ Installation
 Manual installation
 ~~~~~~~~~~~~~~~~~~~
 
-Make a new virtualenv for the project, and run::
+Make a new virtualenv for the project, and install the pinned example
+requirements::
 
-    pip install -r requirements.txt
+    python3 -m venv .venv
+    . .venv/bin/activate
+    python -m pip install --upgrade pip
+    python -m pip install -r requirements.txt
 
 Then, you'll need Redis running locally; the settings are configured to
 point to ``localhost``, port ``6379``, but you can change this in the
@@ -39,17 +43,17 @@ Finally, run::
 Docker installation
 ~~~~~~~~~~~~~~~~~~~
 
-Run the app::
+Run the app with Docker Compose v2::
 
-    docker-compose up -d
+    docker compose up -d
 
 The app will now be running on: {your-docker-ip}:8000
 
-**Note:** You will need to prefix any ``python manage.py`` commands with: ``docker-compose run --rm web``. e.g.: ``docker-compose run --rm web python manage.py createsuperuser``
+**Note:** You will need to prefix any ``python manage.py`` commands with: ``docker compose run --rm web``. e.g.: ``docker compose run --rm web python manage.py createsuperuser``
 
 Finally, run::
 
-    docker-compose run --rm web python manage.py migrate
+    docker compose run --rm web python manage.py migrate
 
 
 Usage
